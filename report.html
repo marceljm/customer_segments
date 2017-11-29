@@ -11804,7 +11804,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11862,7 +11862,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -12005,7 +12005,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -12165,29 +12165,30 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;customers.csv&quot;</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Milk&#39;</span><span class="p">]</span>
-<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Milk&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;Fresh&#39;</span><span class="p">,</span> <span class="s1">&#39;Milk&#39;</span><span class="p">,</span> <span class="s1">&#39;Grocery&#39;</span><span class="p">,</span> <span class="s1">&#39;Frozen&#39;</span><span class="p">,</span> <span class="s1">&#39;Detergents_Paper&#39;</span><span class="p">,</span> <span class="s1">&#39;Delicatessen&#39;</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;customers.csv&#39;</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">category</span><span class="p">]</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Region&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="n">category</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># TODO: Split the data into training and testing sets(0.25) using the given feature as the target</span>
-<span class="c1"># Set a random state.</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">55</span><span class="p">)</span>
+    <span class="c1"># TODO: Split the data into training and testing sets(0.25) using the given feature as the target</span>
+    <span class="c1"># Set a random state.</span>
+    <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">55</span><span class="p">)</span>
 
-<span class="c1"># TODO: Create a decision tree regressor and fit it to the training set</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="k">import</span> <span class="n">DecisionTreeRegressor</span>
-<span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">86</span><span class="p">)</span>
-<span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">y_predict</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="c1"># TODO: Create a decision tree regressor and fit it to the training set</span>
+    <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="k">import</span> <span class="n">DecisionTreeRegressor</span>
+    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">86</span><span class="p">)</span>
+    <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_predict</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="c1"># TODO: Report the score of the prediction using the testing set</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">r2_score</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">score</span><span class="p">)</span>
+    <span class="c1"># TODO: Report the score of the prediction using the testing set</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">r2_score</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12204,7 +12205,12 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.441379836007
+<pre>Fresh : -0.231277798582
+Milk : 0.441379836007
+Grocery : 0.779625348124
+Frozen : -0.51101387689
+Detergents_Paper : 0.775554709811
+Delicatessen : -26.4077450932
 </pre>
 </div>
 </div>
@@ -12232,7 +12238,10 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>I tried to predict Milk but the reported prediction score was 0.44. The low score for this feature lend us to believe that that feature point is hard to predict using other features. So Milk is not necessary for identifying customers' spending habits.</p>
+<p>I predicted all of them.</p>
+<p>When dropped, the reported prediction score was 0.77 for Detergents_Paper and Grocery. The high score for these features lend us to believe that they have a strong correlation with the other features. So they are not necessary for identifying customers' spending habits.</p>
+<p>The prediction score when Milk was dropped was 0.44. Its correlation with the other features are not too strong and may be necessary for identifying customers' spending habits.</p>
+<p>For the other features we had negative scores. Their correlation with other features were not detected. And they seems to be necessary for identifying customers' spending habits.</p>
 
 </div>
 </div>
@@ -12248,7 +12257,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;customers.csv&quot;</span><span class="p">)</span>
@@ -12281,7 +12290,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14155,12 +14164,12 @@ A4QlrUkuXgO6AAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>None of the scatter matrices is normally distributed;</li>
+<li>None of the scatter matrices is normally distributed (maybe because of the outliers). They are positively skewed.</li>
 <li>All of them have outliers and a large number of data points near to 0;</li>
-<li>Grocery and Detergents Paper is the only evident linear correlation;</li>
-<li>The scatter matrix of Milk and Grocery seems to be slightly linear. Milk and Detergents Paper too;</li>
-<li>Analysing only the matrices, the more relevant features seems to be Grocery and Detergents Paper. Milk has less relevance while the other features seem to be irrelevant;</li>
-<li>Analysing the heatmap, the value 0.92 confirms the strong correlation between Grocery and Detergents Paper. 0.72 confirms the correlation between Milk and Grocery, even though not so strong. And 0.66 confirms some degree of relevance between Milk and Detergents Paper. The other values, less than 0.5, seem to confirm the low relevance of the other pairs of features.</li>
+<li>Grocery and Detergents Paper is the most evident linear correlation. And that confirms that these features are not relevant for identifying a specific customer;</li>
+<li>The scatter matrix of Milk and Grocery seems to be linear as well. Milk and Detergents Paper too. So that confirms Milk also is not relevant for identifying a specific customer;</li>
+<li>Analysing only the matrices, the more relevant features for identifying a specific customer seems to be Delicatessen, Frozen and Fresh. Milk has less relevance while the other features seem to be irrelevant;</li>
+<li>Analysing the heatmap, the value 0.92 confirms the strong correlation between Grocery and Detergents Paper. 0.72 confirms the correlation between Milk and Grocery, even though not so strong. And 0.66 confirms a reasonable degree of correlation between Milk and Detergents Paper. The other values, less than 0.5, seem to confirm the low correlation of the other pairs of features and consequentely they are relevant for identifying customers' spending habits.</li>
 </ul>
 
 </div>
@@ -14191,7 +14200,7 @@ A4QlrUkuXgO6AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Scale the data using the natural logarithm</span>
@@ -18301,7 +18310,7 @@ mX9ycZaHgI0AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -18408,7 +18417,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
@@ -19245,7 +19254,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
@@ -19259,6 +19268,8 @@ Once you have performed this implementation, the dataset will be stored in the v
 
 <span class="c1"># Generate PCA results plot</span>
 <span class="n">pca_results</span> <span class="o">=</span> <span class="n">vs</span><span class="o">.</span><span class="n">pca_results</span><span class="p">(</span><span class="n">good_data</span><span class="p">,</span> <span class="n">pca</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">pca_results</span><span class="p">[</span><span class="s1">&#39;Explained Variance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -19268,6 +19279,23 @@ Once you have performed this implementation, the dataset will be stored in the v
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dimension 1    0.4430
+Dimension 2    0.7068
+Dimension 3    0.8299
+Dimension 4    0.9311
+Dimension 5    0.9796
+Dimension 6    1.0000
+Name: Explained Variance, dtype: float64
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -19613,10 +19641,10 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 <ul>
 <li>0.7068 of variance is explained by first and second principal components</li>
 <li>0.9311 of variance is explained by the first four principal components</li>
-<li>The first dimension represents a customer that spends mainly and almost the same quantity with Fresh and Frozen. He spends very little with Detergents.</li>
-<li>The second dimension represents a customer that spends less than the most of people in all categories, mainly with Fresh, Frozen and Delicatessen. He prefers Detegents, Grocery and Milk. Maybe this a costumer of a wholesale supermarket.</li>
-<li>The third dimension represents a customer that spends a lot with Delicatessen mainly and Frozen as well. He doesn't have much interest on Fresh.</li>
-<li>And the fourth dimension represents a customer that spends a lot with Frozen, a reasonable value with Detergents and very little with Delicatessen.</li>
+<li>The first dimension represents a customer that spends mainly with Detergents_Paper (~0.7). And a considerable value with Grocery (~0.4) and Milk (~0.4). Probably it's a hotel.</li>
+<li>The second dimension represents a customer that spends mainly with Fresh (~0.7). And a considerable value with Delicatessen (~0.5) and Frozen (~0.5). Probably it's a restaurant.</li>
+<li>The third dimension represents a customer that spends mainly with Fresh (~0.7) and Delicatessen (~0.7). And a reasonable value with Frozen (~0.3). Probably it's another restaurant.</li>
+<li>And the fourth dimension represents a customer that spends mainly with Frozen (~0.8) and a considerable value with Delicatessen (~0.6). Probably it's a fast food restaurant.</li>
 </ul>
 
 </div>
@@ -19633,7 +19661,7 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -19737,7 +19765,7 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -19769,7 +19797,7 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -19852,7 +19880,7 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a biplot</span>
@@ -19869,13 +19897,13 @@ qcPAJEmSJEkdBiZJkiRJ6jAwSZIkSVLH/wGD21RQbFQ1OQAAAABJRU5ErkJggg==
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f806d4c2f60&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1643f18a58&gt;</pre>
 </div>
 
 </div>
@@ -21047,7 +21075,7 @@ ERH5MAZ1REREREREPoxBHRERERERkQ9jUEdEREREROTD/h+7kvAVpPtSdAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="k">import</span> <span class="n">GaussianMixture</span>
@@ -21141,7 +21169,7 @@ ERH5MAZ1REREREREPoxBHRERERERkQ9jUEdEREREROTD/h+7kvAVpPtSdAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -21809,7 +21837,7 @@ TkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -21936,7 +21964,7 @@ TkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the predictions</span>
@@ -22019,10 +22047,10 @@ Sample point 2 predicted to be in Cluster 1
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>Considering that the customers have N different degrees of satisfaction/insatisfaction about the delivery service, it could be used to segment the customers in N clusters.</p>
-<p>Changing the delivery service for some customers, we would have some customer movements among the N clusters. Because the customers affected by the change could get more or less satisfied. And it could be used to predict the new degree of satisfaction of the other customers (if the change was applied to all).</p>
-<p>So we could visualize how each of N clusters has more or less customers than before. And consequentely if the customer satisfaction is better or worse than before.</p>
-<p>Our simplest model, for example, would have only N=2 satisfaction degrees: satisfied and not satisfied. But maybe it wouldn't be the best model once it wouldn't allow us to see for example how much a customer that was already satisfied and keeps satisfied is more or less satisfied than before.</p>
+<p>In A/B tests the experiment group (A) has to be highly similar to the control group (B). In this case, we just need to get A and B from the same customer segment. The B would continue to receive the deliveries 5 days a week while A  would receive that 3 days a week. After some weeks, a satisfaction survey with A and B would give us which is the best delivery service for that segment, i.e., 5 days or 3 days a week.</p>
+<p>Of course it doesn't affect all customers equally. An A/B test in a customer segment of restaurants that sell Fresh food probably would show us that the customers that receive the deliveries 3 days a week are less satisfied than others that receive that 5 days a week because some products spoil quickly. And if the restaurant is open every day, some ingredients can be missing from a day to the next.</p>
+<p>On the other hand a segment of hotels may prefer the deliveries 3 days a week if that's something that disturbs the guests.</p>
+<p>An A/B test of each customer segment individually and the comparison of all results would give us the customer group is the most affected.</p>
 
 </div>
 </div>
@@ -22064,7 +22092,7 @@ Sample point 2 predicted to be in Cluster 1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
